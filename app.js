@@ -39,7 +39,7 @@ document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(a.datase
   const portrait = matchMedia('(orientation: portrait)');
   // browsers that ignore media on <source> take the first one: correct the choice
   const pick = () => {
-    const want = portrait.matches ? 'hero-portrait' : 'hero-landscape';
+    const want = portrait.matches ? 'hero-square' : 'hero-landscape';
     video.poster = portrait.matches ? video.dataset.posterPortrait : 'assets/video/hero-landscape.jpg';
     if (video.currentSrc && !video.currentSrc.includes(want)) { video.src = `assets/video/${want}.mp4`; if (!video.paused || video.autoplay) video.play().catch(() => {}); }
   };

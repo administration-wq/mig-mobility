@@ -13,26 +13,23 @@
 <link rel="icon" href="assets/img/mig-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="preload" as="image" href="assets/video/hero-landscape.jpg" media="(orientation: landscape)">
-<link rel="preload" as="image" href="assets/video/hero-portrait.jpg" media="(orientation: portrait)">
+<link rel="preload" as="image" href="assets/video/hero-square.jpg" media="(orientation: portrait)">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="page-home">
 <a class="skip" href="#vehicules">Aller aux véhicules</a>
 
-<header class="bar bar--over">
-  <a class="bar__brand" href="index.html" aria-label="MIG Mobility Sénégal, accueil"><img src="assets/img/mig-logo-white.png" alt="MIG Mobility" width="900" height="201"></a>
+<header class="bar">
+  <a class="bar__brand" href="index.html" aria-label="MIG Mobility Sénégal, accueil"><img src="assets/img/mig-logo.png" alt="MIG Mobility" width="900" height="201"></a>
   <nav class="bar__nav" aria-label="Navigation principale">
-    <a class="link" href="t15.html">T15</a>
-    <a class="link" href="asia-leopard.html">Asia Leopard</a>
-    <a class="link" href="a23-1.html">A23-1</a>
-    <a class="link" href="js150.html">JS150</a>
+    <a class="link" href="#vehicules">Nos véhicules</a>
     <a class="link" href="#kilometres">Vos kilomètres</a>
     <a class="link" href="#contact">Contact</a>
   </nav>
-  <a class="bar__call link" href="tel:+221338482275">Tél. 33 848 22 75</a>
+  <a class="bar__call link" href="tel:+221338482275">33 848 22 75</a>
 </header>
 
 <main id="top">
@@ -40,11 +37,11 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__media" aria-hidden="true">
       <picture class="hero__still">
-        <source media="(orientation: portrait)" srcset="assets/video/hero-portrait.jpg">
+        <source media="(orientation: portrait)" srcset="assets/video/hero-square.jpg" width="864" height="800">
         <img src="assets/video/hero-landscape.jpg" alt="" width="1600" height="900" fetchpriority="high">
       </picture>
-      <video class="hero__video" muted loop playsinline autoplay preload="auto" poster="assets/video/hero-landscape.jpg" data-poster-portrait="assets/video/hero-portrait.jpg">
-        <source media="(orientation: portrait)" src="assets/video/hero-portrait.mp4" type="video/mp4">
+      <video class="hero__video" muted loop playsinline autoplay preload="auto" poster="assets/video/hero-landscape.jpg" data-poster-portrait="assets/video/hero-square.jpg">
+        <source media="(orientation: portrait)" src="assets/video/hero-square.mp4" type="video/mp4">
         <source src="assets/video/hero-landscape.mp4" type="video/mp4">
       </video>
     </div>
@@ -182,14 +179,14 @@
         <img src="assets/img/detail-t15-frein.webp" alt="Roue avant et disque de frein du T15" width="800" height="1000" loading="lazy">
         <img src="assets/img/detail-t15-topcase.webp" alt="Top case du T15" width="800" height="1000" loading="lazy">
       </div>
-      <a class="mod mod--wide mod--field-black" href="asia-leopard.html"><img src="assets/img/leopard.webp" alt="Moto Asia Leopard 125 cm³ grise, de profil" width="1200" height="937" loading="lazy"></a>
+      <a class="mod mod--wide mod--field" href="asia-leopard.html"><img src="assets/img/leopard.webp" alt="Moto Asia Leopard 125 cm³ grise, de profil" width="1200" height="937" loading="lazy"></a>
       <div class="mod mod--pair">
         <img src="assets/img/detail-leopard-moteur.webp" alt="Moteur 125 cm³ de l'Asia Leopard" width="800" height="1000" loading="lazy">
         <img src="assets/img/detail-a23-parebrise.webp" alt="Pare-brise et essuie-glace de l'A23-1" width="800" height="1000" loading="lazy">
       </div>
-      <a class="mod mod--tall mod--field-red" href="a23-1.html"><img src="assets/img/a23.webp" alt="Tricycle électrique A23-1 avec toit" width="1194" height="1134" loading="lazy"></a>
-      <a class="mod mod--wide mod--field-grey" href="js150.html"><img src="assets/img/js150.webp" alt="Tricycle cargo JS150 rouge avec benne" width="1200" height="1025" loading="lazy"></a>
-      <a class="mod mod--tall mod--field-red" href="t15.html"><img src="assets/img/t15.webp" alt="Scooter électrique T15 blanc et vert" width="804" height="955" loading="lazy"></a>
+      <a class="mod mod--tall mod--field" href="a23-1.html"><img src="assets/img/a23.webp" alt="Tricycle électrique A23-1 avec toit" width="1194" height="1134" loading="lazy"></a>
+      <a class="mod mod--wide mod--field" href="js150.html"><img src="assets/img/js150.webp" alt="Tricycle cargo JS150 rouge avec benne" width="1200" height="1025" loading="lazy"></a>
+      <a class="mod mod--tall mod--field" href="t15.html"><img src="assets/img/t15.webp" alt="Scooter électrique T15 blanc et vert" width="804" height="955" loading="lazy"></a>
     </div>
    </div>
   </section>
@@ -197,7 +194,7 @@
   <!-- ============ Contact ============ -->
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <p class="contact__say">Un prix, une disponibilité&nbsp;? Appelez ou écrivez-nous sur WhatsApp.</p>
-    <img class="contact__pic" src="assets/img/mig-mark-square.webp" alt="Symbole de MIG Mobility" width="480" height="480" loading="lazy">
+    <img class="contact__pic" src="assets/img/mig-mark.png" alt="Symbole de MIG Mobility" width="381" height="400" loading="lazy">
     <div class="contact__links">
       <h2 class="contact__q" id="contact-title">Un modèle vous intéresse ?</h2>
       <a class="link-plain" href="tel:+221338482275">Téléphone · 33 848 22 75</a>
