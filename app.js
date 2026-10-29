@@ -1,5 +1,6 @@
-// MIG Mobility Sénégal · page script. Everything here is an enhancement: without it the page
-// shows every vehicle, the spec sheets, a fixed kilometre table and working links.
+// MIG Mobility Sénégal · shared script for the home page and the vehicle pages. Everything here is an
+// enhancement: without it the pages show every vehicle, the spec sheets, a fixed kilometre table and
+// working links. Each part looks for its own elements and does nothing on a page that lacks them.
 
 const WA_DEFAULT = '221710971212';
 const waHref = (text, num = WA_DEFAULT) => `https://wa.me/${num}?text=${encodeURIComponent(text)}`;
@@ -17,11 +18,53 @@ document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(a.datase
   }, { rootMargin: '0px 0px -4% 0px', threshold: 0.01 });
   targets.forEach((el) => io.observe(el));
   // the first screen comes in at once, whatever its height
-  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll('.intro [data-reveal]').forEach((el) => el.classList.add('is-in'))));
+  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll('.hero [data-reveal], .vhero [data-reveal]').forEach((el) => el.classList.add('is-in'))));
   addEventListener('load', () => setTimeout(() => targets.forEach((el) => {
     const r = el.getBoundingClientRect();
     if (r.top < innerHeight && r.bottom > 0) el.classList.add('is-in');
   }), 2500));
+})();
+
+// The film: a 12 s loop, three seconds per vehicle; the line under it names the one on the plate
+(() => {
+  const hero = document.querySelector('.hero');
+  const video = hero && hero.querySelector('.hero__video');
+  if (!video) return;
+  const now = hero.querySelector('.hero__now');
+  const link = now.querySelector('.hero__now-link');
+  const name = now.querySelector('[data-now-name]');
+  const fact = now.querySelector('[data-now-fact]');
+  const toggle = now.querySelector('.hero__toggle');
+  const list = JSON.parse(now.dataset.now);
+  const portrait = matchMedia('(orientation: portrait)');
+  // browsers that ignore media on <source> take the first one: correct the choice
+  const pick = () => {
+    const want = portrait.matches ? 'hero-portrait' : 'hero-landscape';
+    video.poster = portrait.matches ? video.dataset.posterPortrait : 'assets/video/hero-landscape.jpg';
+    if (video.currentSrc && !video.currentSrc.includes(want)) { video.src = `assets/video/${want}.mp4`; if (!video.paused || video.autoplay) video.play().catch(() => {}); }
+  };
+  video.addEventListener('loadedmetadata', pick, { once: true });
+  portrait.addEventListener('change', () => { video.removeAttribute('src'); video.load(); pick(); });
+  pick();
+  let shown = -1;
+  video.addEventListener('timeupdate', () => {
+    const i = Math.floor((((video.currentTime - 0.4) % 12) + 12) % 12 / 3);
+    if (i === shown) return;
+    shown = i;
+    const v = list[i];
+    link.href = v.page; name.textContent = v.name; fact.textContent = v.fact;
+  });
+  let paused = reduced;
+  const apply = () => {
+    toggle.textContent = paused ? 'Lecture' : 'Pause';
+    toggle.setAttribute('aria-pressed', paused);
+    hero.classList.toggle('is-paused', paused);
+  };
+  if (reduced) { video.removeAttribute('autoplay'); video.pause(); }
+  toggle.addEventListener('click', () => { paused = !paused; if (paused) video.pause(); else video.play().catch(() => {}); apply(); });
+  // off screen the film rests
+  new IntersectionObserver((l) => { for (const e of l) { if (paused) return; if (e.isIntersecting) video.play().catch(() => {}); else video.pause(); } }, { threshold: 0.1 }).observe(hero);
+  apply();
 })();
 
 // The showroom: the plate shows the vehicle whose entry is in the reading band
@@ -56,19 +99,6 @@ document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(a.datase
     for (const e of list) if (e.isIntersecting) show(e.target.dataset.vehicle);
   }, { rootMargin: '-48% 0px -40% 0px' });
   entries.forEach((el) => io.observe(el));
-  // back at the top, the T15 returns
-  const intro = document.querySelector('.intro');
-  new IntersectionObserver((list) => { for (const e of list) if (e.isIntersecting) show('t15'); }, { rootMargin: '-48% 0px -40% 0px' }).observe(intro);
-  // on a phone the plate sits above the catalogue and turns through the four by itself
-  const phone = matchMedia('(max-width: 900px)');
-  if (!reduced) {
-    let seen = false;
-    new IntersectionObserver((list) => { seen = list[0].isIntersecting; }, { threshold: 0.4 }).observe(stage);
-    setInterval(() => {
-      if (!phone.matches || !seen || document.hidden) return;
-      show(order[(order.indexOf(stage.dataset.active) + 1) % order.length]);
-    }, 2800);
-  }
 })();
 
 // Your kilometres: the MIG ring fills with the share of the day's energy
@@ -112,7 +142,9 @@ document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(a.datase
     fill.style.setProperty('--fill', Math.min(share, 1) * 100);
     fill.classList.toggle('is-over', share > 1);
     wa.href = waHref(`Bonjour MIG Mobility, je voudrais le prix ${v.price}. Je roule environ ${km} km par jour.`);
-    sheet.href = `#fiche-${key}`;
+    const tab = tabs.find((t) => t.dataset.k === key);
+    sheet.href = tab.dataset.page;
+    sheet.textContent = `Voir la fiche ${v.price}`;
   };
   const select = (k, focus) => {
     key = k;
@@ -129,33 +161,8 @@ document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(a.datase
     });
   });
   range.addEventListener('input', render);
-  select('t15');
-})();
-
-// The details: the active row opens and the picture follows it
-(() => {
-  const items = [...document.querySelectorAll('.rows__item')];
-  const pics = [...document.querySelectorAll('.details__pic img')];
-  if (!items.length) return;
-  const activate = (n) => {
-    items.forEach((it, i) => {
-      const on = i === n;
-      it.classList.toggle('is-on', on);
-      it.querySelector('.rows__btn').setAttribute('aria-expanded', on);
-    });
-    pics.forEach((p) => p.classList.toggle('is-on', Number(p.dataset.pic) === n));
-  };
-  items.forEach((it, i) => {
-    const btn = it.querySelector('.rows__btn');
-    btn.addEventListener('click', () => activate(i));
-    btn.addEventListener('focus', () => activate(i));
-    if (matchMedia('(hover: hover) and (pointer: fine)').matches) btn.addEventListener('mouseenter', () => activate(i));
-  });
-  // scrolling a row to the middle of the screen activates it
-  const io = new IntersectionObserver((list) => {
-    for (const e of list) if (e.isIntersecting) activate(items.indexOf(e.target));
-  }, { rootMargin: '-50% 0px -45% 0px' });
-  items.forEach((it) => io.observe(it));
+  const asked = new URLSearchParams(location.search).get('v');
+  select(V[asked] ? asked : 't15');
 })();
 
 // The reel: on a wide screen the page scroll carries the row sideways while the stage holds;
@@ -205,14 +212,15 @@ document.querySelectorAll('[data-wa]').forEach((a) => { a.href = waHref(a.datase
     const step = (e.key === 'ArrowRight' ? 1 : -1) * row.clientWidth * 0.6;
     if (pinned()) { e.preventDefault(); scrollBy({ top: step, behavior: 'instant' }); } else row.scrollBy({ left: step, behavior: reduced ? 'auto' : 'smooth' });
   });
-  const video = row.querySelector('video');
-  if (video && 'IntersectionObserver' in window) {
-    if (reduced) { video.removeAttribute('autoplay'); video.pause(); video.controls = true; }
-    new IntersectionObserver((list) => {
-      for (const e of list) {
-        if (reduced) return;
-        if (e.isIntersecting) video.play().catch(() => {}); else video.pause();
-      }
-    }, { threshold: 0.25 }).observe(video);
-  }
+})();
+
+// Films inside the page play only while they are on screen; with reduced motion they wait for a click
+(() => {
+  const films = document.querySelectorAll('video[data-inview]');
+  if (!films.length) return;
+  if (reduced || !('IntersectionObserver' in window)) { films.forEach((v) => { v.controls = true; }); return; }
+  const io = new IntersectionObserver((list) => {
+    for (const e of list) if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+  }, { threshold: 0.25 });
+  films.forEach((v) => io.observe(v));
 })();

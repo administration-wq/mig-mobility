@@ -6,48 +6,64 @@
 <title>MIG Mobility Sénégal · Deux et trois roues en vente à Dakar</title>
 <meta name="description" content="MIG Mobility Sénégal vend à Dakar le scooter électrique T15, la moto Asia Leopard 125 cm³, le tricycle électrique A23-1 et le tricycle cargo JS150. Prix et disponibilité sur WhatsApp.">
 <meta name="theme-color" content="#18181A">
-<meta property="og:title" content="MIG Mobility Sénégal · Deux et trois roues à Dakar">
-<meta property="og:description" content="T15, Asia Leopard, A23-1, JS150 : les fiches, les chiffres et le prix sur WhatsApp.">
-<meta property="og:image" content="assets/video/poster.jpg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MIG Mobility Sénégal · Deux et trois roues en vente à Dakar">
+<meta property="og:description" content="MIG Mobility Sénégal vend à Dakar le scooter électrique T15, la moto Asia Leopard 125 cm³, le tricycle électrique A23-1 et le tricycle cargo JS150. Prix et disponibilité sur WhatsApp.">
+<meta property="og:image" content="assets/video/hero-landscape.jpg">
 <link rel="icon" href="assets/img/mig-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="assets/video/hero-landscape.jpg" media="(orientation: landscape)">
+<link rel="preload" as="image" href="assets/video/hero-portrait.jpg" media="(orientation: portrait)">
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="page-home">
 <a class="skip" href="#vehicules">Aller aux véhicules</a>
 
-<header class="bar">
-  <a class="bar__brand" href="#top" aria-label="MIG Mobility Sénégal, haut de page"><img src="assets/img/mig-logo.png" alt="MIG Mobility" width="900" height="201"></a>
+<header class="bar bar--over">
+  <a class="bar__brand" href="index.html" aria-label="MIG Mobility Sénégal, accueil"><img src="assets/img/mig-logo-white.png" alt="MIG Mobility" width="900" height="201"></a>
   <nav class="bar__nav" aria-label="Navigation principale">
-    <a class="link" href="#vehicules">Véhicules</a>
+    <a class="link" href="t15.html">T15</a>
+    <a class="link" href="asia-leopard.html">Asia Leopard</a>
+    <a class="link" href="a23-1.html">A23-1</a>
+    <a class="link" href="js150.html">JS150</a>
     <a class="link" href="#kilometres">Vos kilomètres</a>
-    <a class="link" href="#fiches">Fiches</a>
     <a class="link" href="#contact">Contact</a>
   </nav>
   <a class="bar__call link" href="tel:+221338482275">Tél. 33 848 22 75</a>
 </header>
 
 <main id="top">
+  <!-- ============ The film: the four vehicles take their turn on the MIG ring ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__media" aria-hidden="true">
+      <picture class="hero__still">
+        <source media="(orientation: portrait)" srcset="assets/video/hero-portrait.jpg">
+        <img src="assets/video/hero-landscape.jpg" alt="" width="1600" height="900" fetchpriority="high">
+      </picture>
+      <video class="hero__video" muted loop playsinline autoplay preload="auto" poster="assets/video/hero-landscape.jpg" data-poster-portrait="assets/video/hero-portrait.jpg">
+        <source media="(orientation: portrait)" src="assets/video/hero-portrait.mp4" type="video/mp4">
+        <source src="assets/video/hero-landscape.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__text">
+      <h1 class="head" id="hero-title" data-reveal style="--i:0">Deux et trois roues, en vente à Dakar</h1>
+      <p class="lead hero__lead" data-reveal style="--i:1">MIG Mobility Sénégal vend le scooter électrique T15, la moto Asia Leopard 125&nbsp;cm³ et les tricycles A23-1 et JS150.</p>
+      <a class="button" data-reveal style="--i:2" href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20conna%C3%AEtre%20vos%20prix.">Demander un prix sur WhatsApp</a>
+    </div>
+    <div class="hero__now" data-reveal style="--i:3" data-now="[{&quot;name&quot;: &quot;T15&quot;, &quot;fact&quot;: &quot;scooter électrique, 120 km d&#x27;autonomie&quot;, &quot;page&quot;: &quot;t15.html&quot;}, {&quot;name&quot;: &quot;Asia Leopard&quot;, &quot;fact&quot;: &quot;moto à essence, 125 cm³ et 85 km/h&quot;, &quot;page&quot;: &quot;asia-leopard.html&quot;}, {&quot;name&quot;: &quot;A23-1&quot;, &quot;fact&quot;: &quot;tricycle électrique avec toit et pare-brise&quot;, &quot;page&quot;: &quot;a23-1.html&quot;}, {&quot;name&quot;: &quot;JS150&quot;, &quot;fact&quot;: &quot;tricycle cargo, jusqu&#x27;à 900 kg&quot;, &quot;page&quot;: &quot;js150.html&quot;}]">
+      <a class="link-plain hero__now-link" href="t15.html"><b data-now-name>T15</b> <span data-now-fact>scooter électrique, 120 km d'autonomie</span></a>
+      <button class="hero__toggle" type="button" aria-pressed="false">Pause</button>
+    </div>
+  </section>
+
   <!-- ============ The showroom: a fixed stage, the catalogue scrolls beside it ============ -->
   <section class="showroom" id="vehicules" aria-label="Les quatre véhicules">
     <div class="showroom__read">
-      <div class="intro">
-        <ul class="intro__index" data-reveal aria-label="Les quatre modèles">
-          <li><a class="link" href="#t15-title">T15</a><span>scooter électrique</span></li>
-          <li><a class="link" href="#leopard-title">Asia Leopard</a><span>moto à essence 125&nbsp;cm³</span></li>
-          <li><a class="link" href="#a23-title">A23-1</a><span>tricycle électrique</span></li>
-          <li><a class="link" href="#js150-title">JS150</a><span>tricycle cargo à essence</span></li>
-        </ul>
-        <h1 class="head" data-reveal style="--i:0">Deux et trois roues, en vente à Dakar</h1>
-        <p class="lead intro__text" data-reveal style="--i:1">MIG Mobility Sénégal vend le scooter électrique T15, la moto Asia Leopard 125&nbsp;cm³ et les tricycles A23-1 et JS150.</p>
-        <a class="button" data-reveal style="--i:2" data-wa="Bonjour MIG Mobility, je voudrais connaître vos prix." href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20conna%C3%AEtre%20vos%20prix.">Demander un prix sur WhatsApp</a>
-      </div>
-
       <article class="entry" data-vehicle="t15" aria-labelledby="t15-title">
-        <figure class="entry__pic"><img src="assets/img/t15.webp" alt="Scooter électrique T15" width="804" height="955" loading="lazy"></figure>
+        <figure class="entry__pic"><img src="assets/img/t15.webp" alt="Scooter électrique T15 blanc et vert, avec top case" width="804" height="955" loading="lazy"></figure>
         <h2 class="head" id="t15-title" data-reveal style="--i:0">T15</h2>
         <p class="entry__what" data-reveal style="--i:1">Scooter électrique à batterie lithium, freins à disque à l'avant et à l'arrière.</p>
         <dl class="facts" data-reveal style="--i:2">
@@ -56,11 +72,10 @@
           <div><dt>Charge utile</dt><dd><b class="display">200</b> kg</dd></div>
         </dl>
         <p class="entry__more" data-reveal style="--i:3">Moteur-roue de 2&nbsp;000&nbsp;W, batterie 72&nbsp;V 45&nbsp;Ah, recharge complète en 6 à 10&nbsp;heures.</p>
-        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" data-wa="Bonjour MIG Mobility, je voudrais le prix du T15." href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20T15.">Prix du T15 sur WhatsApp</a><a class="link-plain" href="#fiche-t15">Fiche complète</a></p>
+        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" href="t15.html">Fiche complète du T15</a><a class="link-plain" href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20T15.">Prix sur WhatsApp</a></p>
       </article>
-
       <article class="entry" data-vehicle="leopard" aria-labelledby="leopard-title">
-        <figure class="entry__pic"><img src="assets/img/leopard.webp" alt="Moto Asia Leopard 125 cm³" width="1200" height="937" loading="lazy"></figure>
+        <figure class="entry__pic"><img src="assets/img/leopard.webp" alt="Moto Asia Leopard 125 cm³ grise, de profil" width="1200" height="937" loading="lazy"></figure>
         <h2 class="head" id="leopard-title" data-reveal style="--i:0">Asia Leopard</h2>
         <p class="entry__what" data-reveal style="--i:1">Moto à essence de 125&nbsp;cm³, moteur quatre temps refroidi par air, roues de 17&nbsp;pouces.</p>
         <dl class="facts" data-reveal style="--i:2">
@@ -69,11 +84,10 @@
           <div><dt>Réservoir</dt><dd><b class="display">4,3</b> L</dd></div>
         </dl>
         <p class="entry__more" data-reveal style="--i:3">6,3&nbsp;kW à 7&nbsp;500&nbsp;tr/min, frein à disque à l'avant, tambour à l'arrière.</p>
-        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" data-wa="Bonjour MIG Mobility, je voudrais le prix de l'Asia Leopard 125." href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20de%20l%27Asia%20Leopard%20125.">Prix de l'Asia Leopard sur WhatsApp</a><a class="link-plain" href="#fiche-leopard">Fiche complète</a></p>
+        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" href="asia-leopard.html">Fiche complète de l’Asia Leopard</a><a class="link-plain" href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20de%20l%27Asia%20Leopard%20125.">Prix sur WhatsApp</a></p>
       </article>
-
       <article class="entry" data-vehicle="a23" aria-labelledby="a23-title">
-        <figure class="entry__pic"><img src="assets/img/a23.webp" alt="Tricycle électrique A23-1" width="1194" height="1134" loading="lazy"></figure>
+        <figure class="entry__pic"><img src="assets/img/a23.webp" alt="Tricycle électrique A23-1 gris clair, avec toit" width="1194" height="1134" loading="lazy"></figure>
         <h2 class="head" id="a23-title" data-reveal style="--i:0">A23-1</h2>
         <p class="entry__what" data-reveal style="--i:1">Tricycle électrique avec toit, pare-brise et essuie-glace, freins à disque sur les trois roues.</p>
         <dl class="facts" data-reveal style="--i:2">
@@ -82,11 +96,10 @@
           <div><dt>Batterie</dt><dd><b class="display">45</b> Ah</dd></div>
         </dl>
         <p class="entry__more" data-reveal style="--i:3">Batterie de 60 ou 72&nbsp;V, compteur numérique, 2,23&nbsp;m de long.</p>
-        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" data-wa="Bonjour MIG Mobility, je voudrais le prix du tricycle A23-1." href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20tricycle%20A23-1.">Prix de l'A23-1 sur WhatsApp</a><a class="link-plain" href="#fiche-a23">Fiche complète</a></p>
+        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" href="a23-1.html">Fiche complète de l’A23-1</a><a class="link-plain" href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20tricycle%20A23-1.">Prix sur WhatsApp</a></p>
       </article>
-
       <article class="entry" data-vehicle="js150" aria-labelledby="js150-title">
-        <figure class="entry__pic"><img src="assets/img/js150.webp" alt="Tricycle cargo JS150" width="1200" height="1025" loading="lazy"></figure>
+        <figure class="entry__pic"><img src="assets/img/js150.webp" alt="Tricycle cargo JS150 rouge avec benne" width="1200" height="1025" loading="lazy"></figure>
         <h2 class="head" id="js150-title" data-reveal style="--i:0">JS150</h2>
         <p class="entry__what" data-reveal style="--i:1">Tricycle cargo à essence, transmission par cardan, benne de 1,80 sur 1,20&nbsp;m.</p>
         <dl class="facts" data-reveal style="--i:2">
@@ -95,7 +108,7 @@
           <div><dt>Aux 100 km, maxi</dt><dd><b class="display">3,6</b> L</dd></div>
         </dl>
         <p class="entry__more" data-reveal style="--i:3">60&nbsp;km/h et plus, pneus 5.00-12, suspension à ressorts et à lames.</p>
-        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" data-wa="Bonjour MIG Mobility, je voudrais le prix du tricycle cargo JS150." href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20tricycle%20cargo%20JS150.">Prix du JS150 sur WhatsApp</a><a class="link-plain" href="#fiche-js150">Fiche complète</a></p>
+        <p class="entry__links" data-reveal style="--i:4"><a class="link-plain" href="js150.html">Fiche complète du JS150</a><a class="link-plain" href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20tricycle%20cargo%20JS150.">Prix sur WhatsApp</a></p>
       </article>
     </div>
 
@@ -103,10 +116,10 @@
       <div class="plate">
         <svg class="plate__ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" /></svg>
         <div class="plate__disc"></div>
-        <img class="plate__car is-on" data-car="t15" src="assets/img/t15.webp" alt="" width="804" height="955" fetchpriority="high">
-        <img class="plate__car" data-car="leopard" src="assets/img/leopard.webp" alt="" width="1200" height="937">
-        <img class="plate__car" data-car="a23" src="assets/img/a23.webp" alt="" width="1194" height="1134">
-        <img class="plate__car" data-car="js150" src="assets/img/js150.webp" alt="" width="1200" height="1025">
+        <img class="plate__car is-on" data-car="t15" src="assets/img/t15.webp" alt="" width="804" height="955">
+        <img class="plate__car" data-car="leopard" src="assets/img/leopard.webp" alt="" width="1200" height="937" loading="lazy">
+        <img class="plate__car" data-car="a23" src="assets/img/a23.webp" alt="" width="1194" height="1134" loading="lazy">
+        <img class="plate__car" data-car="js150" src="assets/img/js150.webp" alt="" width="1200" height="1025" loading="lazy">
       </div>
       <p class="stage__caption small"><b data-cap-name>T15</b> <span data-cap-fact>120 km d'autonomie</span></p>
     </div>
@@ -122,13 +135,13 @@
       </svg>
       <img class="km__car is-on" data-kcar="t15" src="assets/img/t15.webp" alt="Scooter électrique T15" width="804" height="955" loading="lazy">
       <img class="km__car" data-kcar="a23" src="assets/img/a23.webp" alt="Tricycle électrique A23-1" width="1194" height="1134" loading="lazy">
-      <img class="km__car" data-kcar="js150" src="assets/img/js150.webp" alt="Tricycle cargo JS150" width="1200" height="1025" loading="lazy">
+      <img class="km__car" data-kcar="js150" src="assets/img/js150.webp" alt="Tricycle cargo à essence JS150" width="1200" height="1025" loading="lazy">
     </div>
     <div class="km__side">
       <div class="km__tabs" role="tablist" aria-label="Choisir un véhicule">
-        <button role="tab" aria-selected="true" data-k="t15">T15</button>
-        <button role="tab" aria-selected="false" data-k="a23">A23-1</button>
-        <button role="tab" aria-selected="false" data-k="js150">JS150</button>
+        <button role="tab" aria-selected="true" data-k="t15" data-page="t15.html">T15</button>
+        <button role="tab" aria-selected="false" data-k="a23" data-page="a23-1.html">A23-1</button>
+        <button role="tab" aria-selected="false" data-k="js150" data-page="js150.html">JS150</button>
       </div>
       <div class="km__body">
         <label class="sr-only" for="km-range">Distance parcourue chaque jour, en kilomètres</label>
@@ -147,118 +160,9 @@
         <p class="small km__note">Calcul indicatif à partir des données constructeur. Pour l'Asia Leopard, la consommation n'est pas indiquée.</p>
       </div>
       <div class="km__cells">
-        <a class="cell cell--action" id="km-wa" data-wa="Bonjour MIG Mobility, je voudrais le prix du T15. Je roule environ 80 km par jour." href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20T15.%20Je%20roule%20environ%2080%20km%20par%20jour.">Demander le prix</a>
-        <a class="cell" id="km-sheet" href="#fiche-t15">Voir la fiche</a>
+        <a class="cell cell--action" id="km-wa" href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20le%20prix%20du%20T15.%20Je%20roule%20environ%2080%20km%20par%20jour.">Demander le prix</a>
+        <a class="cell" id="km-sheet" href="t15.html">Voir la fiche du T15</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ The sheets: the full spec, printed like a price list ============ -->
-  <section class="sheets" id="fiches" aria-labelledby="fiches-title">
-    <div class="sheets__head">
-      <h2 class="head" id="fiches-title" data-reveal>Les fiches techniques</h2>
-      <p class="lead" data-reveal style="--i:1">Tous les chiffres du constructeur, sans arrondi. Chaque fiche se télécharge en PDF, prête à imprimer.</p>
-    </div>
-    <div class="sheets__row">
-      <div class="sheet" data-reveal>
-        <h3 class="sheet__title">Deux roues</h3>
-        <section class="sheet__group" id="fiche-t15" aria-labelledby="ft15">
-          <h4 class="sheet__name" id="ft15">T15 · scooter électrique</h4>
-          <table class="menu">
-            <tr><th scope="row">Puissance nominale</th><td>2&nbsp;000 W</td></tr>
-            <tr><th scope="row">Moteur</th><td>moteur-roue</td></tr>
-            <tr><th scope="row">Batterie</th><td>lithium 72 V · 45 Ah</td></tr>
-            <tr><th scope="row">Autonomie</th><td>120 km</td></tr>
-            <tr><th scope="row">Temps de charge</th><td>6 à 10 h</td></tr>
-            <tr><th scope="row">Vitesse max</th><td>85 km/h</td></tr>
-            <tr><th scope="row">Freins</th><td>disque AV et AR</td></tr>
-            <tr><th scope="row">Pneus tubeless</th><td>90-12 · 3.50-10</td></tr>
-            <tr><th scope="row">Charge utile</th><td>200 kg</td></tr>
-            <tr><th scope="row">Poids à vide</th><td>130 kg</td></tr>
-            <tr><th scope="row">Selle · garde au sol</th><td>770 · 145 mm</td></tr>
-            <tr><th scope="row">L × l × h</th><td>1&nbsp;920 × 790 × 1&nbsp;260 mm</td></tr>
-          </table>
-          <a class="link-plain sheet__pdf" href="assets/fiches/t15-fiche-technique-mig.pdf" download>Télécharger la fiche du T15 (PDF)</a>
-        </section>
-        <section class="sheet__group" id="fiche-leopard" aria-labelledby="fleo">
-          <h4 class="sheet__name" id="fleo">Asia Leopard · moto 125 cm³</h4>
-          <table class="menu">
-            <tr><th scope="row">Moteur</th><td>monocylindre 4 temps, air</td></tr>
-            <tr><th scope="row">Cylindrée</th><td>125 cm³</td></tr>
-            <tr><th scope="row">Compression</th><td>8,8 : 1</td></tr>
-            <tr><th scope="row">Puissance max</th><td>6,3 kW à 7&nbsp;500 tr/min</td></tr>
-            <tr><th scope="row">Couple max</th><td>8,8 N·m à 5&nbsp;500 tr/min</td></tr>
-            <tr><th scope="row">Vitesse max</th><td>85 km/h</td></tr>
-            <tr><th scope="row">Réservoir</th><td>4,3 L</td></tr>
-            <tr><th scope="row">Freins</th><td>disque AV · tambour AR</td></tr>
-            <tr><th scope="row">Pneus</th><td>2.50-17 · 2.75-17</td></tr>
-            <tr><th scope="row">Empattement · garde au sol</th><td>1&nbsp;240 · 150 mm</td></tr>
-            <tr><th scope="row">L × l × h</th><td>1&nbsp;960 × 720 × 1&nbsp;100 mm</td></tr>
-          </table>
-          <a class="link-plain sheet__pdf" href="assets/fiches/leopard-fiche-technique-mig.pdf" download>Télécharger la fiche de l'Asia Leopard (PDF)</a>
-        </section>
-      </div>
-
-      <div class="sheet" data-reveal style="--i:1">
-        <h3 class="sheet__title">Trois roues</h3>
-        <section class="sheet__group" id="fiche-a23" aria-labelledby="fa23">
-          <h4 class="sheet__name" id="fa23">A23-1 · tricycle électrique</h4>
-          <table class="menu">
-            <tr><th scope="row">Batterie</th><td>60 ou 72 V · 45 Ah</td></tr>
-            <tr><th scope="row">Autonomie</th><td>60 km</td></tr>
-            <tr><th scope="row">Vitesse max</th><td>45 km/h</td></tr>
-            <tr><th scope="row">Freins</th><td>disque AV et AR</td></tr>
-            <tr><th scope="row">Tableau de bord</th><td>compteur numérique HD</td></tr>
-            <tr><th scope="row">Empattement</th><td>1&nbsp;710 mm</td></tr>
-            <tr><th scope="row">Voie</th><td>970 mm</td></tr>
-            <tr><th scope="row">L × l × h</th><td>2&nbsp;230 × 1&nbsp;050 × 1&nbsp;740 mm</td></tr>
-          </table>
-          <a class="link-plain sheet__pdf" href="assets/fiches/a23-fiche-technique-mig.pdf" download>Télécharger la fiche de l'A23-1 (PDF)</a>
-        </section>
-        <section class="sheet__group" id="fiche-js150" aria-labelledby="fjs">
-          <h4 class="sheet__name" id="fjs">JS150 · tricycle cargo essence</h4>
-          <table class="menu">
-            <tr><th scope="row">Réservoir</th><td>17 L d'essence</td></tr>
-            <tr><th scope="row">Consommation</th><td>3,6 L/100 km au plus</td></tr>
-            <tr><th scope="row">Vitesse max</th><td>60 km/h et plus</td></tr>
-            <tr><th scope="row">Charge max</th><td>jusqu'à 900 kg</td></tr>
-            <tr><th scope="row">Benne</th><td>1&nbsp;800 × 1&nbsp;200 × 400 mm</td></tr>
-            <tr><th scope="row">Transmission</th><td>par arbre (cardan)</td></tr>
-            <tr><th scope="row">Pont arrière</th><td>semi-flottant 220</td></tr>
-            <tr><th scope="row">Freins</th><td>tambour AV et AR</td></tr>
-            <tr><th scope="row">Suspension</th><td>4 ressorts AV · lames 4+3 AR</td></tr>
-            <tr><th scope="row">Pneus · garde au sol</th><td>5.00-12 · 160 mm</td></tr>
-            <tr><th scope="row">Batterie</th><td>12 V · 28 Ah</td></tr>
-            <tr><th scope="row">L × l × h</th><td>3&nbsp;210 × 1&nbsp;435 × 1&nbsp;490 mm</td></tr>
-          </table>
-          <a class="link-plain sheet__pdf" href="assets/fiches/js150-fiche-technique-mig.pdf" download>Télécharger la fiche du JS150 (PDF)</a>
-        </section>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ The details: a list, the picture follows the row ============ -->
-  <section class="details" id="details" aria-labelledby="details-title">
-    <div class="details__pic" aria-hidden="true">
-      <img class="is-on" data-pic="0" src="assets/img/detail-t15-frein.webp" alt="" width="800" height="1000" loading="lazy">
-      <img data-pic="1" src="assets/img/detail-t15-topcase.webp" alt="" width="800" height="1000" loading="lazy">
-      <img data-pic="2" src="assets/img/detail-leopard-moteur.webp" alt="" width="800" height="1000" loading="lazy">
-      <img data-pic="3" src="assets/img/detail-leopard-roue.webp" alt="" width="800" height="1000" loading="lazy">
-      <img data-pic="4" src="assets/img/detail-a23-parebrise.webp" alt="" width="800" height="1000" loading="lazy">
-      <img data-pic="5" src="assets/img/detail-js150-benne.webp" alt="" width="800" height="1000" loading="lazy">
-      <img data-pic="6" src="assets/img/detail-js150-ressorts.webp" alt="" width="800" height="1000" loading="lazy">
-    </div>
-    <div class="details__list">
-      <h2 class="head" id="details-title" data-reveal>Les détails, de près</h2>
-      <ul class="rows">
-        <li class="rows__item is-on" data-row="0"><button class="rows__btn" aria-expanded="true" aria-controls="d0"><span>Freins à disque avant et arrière</span><span class="rows__who">T15</span></button><p class="rows__desc" id="d0">Deux disques sur le T15, avec des pneus tubeless 90-12 et 3.50-10.</p></li>
-        <li class="rows__item" data-row="1"><button class="rows__btn" aria-expanded="false" aria-controls="d1"><span>Top case et arceaux</span><span class="rows__who">T15</span></button><p class="rows__desc" id="d1">Le T15 présenté ici porte un top case à l'arrière et des arceaux de protection autour de la carrosserie.</p></li>
-        <li class="rows__item" data-row="2"><button class="rows__btn" aria-expanded="false" aria-controls="d2"><span>Moteur 125 cm³ quatre temps</span><span class="rows__who">Asia Leopard</span></button><p class="rows__desc" id="d2">Monocylindre refroidi par air : 6,3 kW à 7&nbsp;500 tr/min et 8,8 N·m à 5&nbsp;500 tr/min.</p></li>
-        <li class="rows__item" data-row="3"><button class="rows__btn" aria-expanded="false" aria-controls="d3"><span>Jantes de 17 pouces</span><span class="rows__who">Asia Leopard</span></button><p class="rows__desc" id="d3">Pneus 2.50-17 à l'avant et 2.75-17 à l'arrière, frein à disque à l'avant, tambour à l'arrière.</p></li>
-        <li class="rows__item" data-row="4"><button class="rows__btn" aria-expanded="false" aria-controls="d4"><span>Toit et pare-brise</span><span class="rows__who">A23-1</span></button><p class="rows__desc" id="d4">Un toit sur toute la longueur et un pare-brise avec essuie-glace, pour rouler au soleil comme sous la pluie.</p></li>
-        <li class="rows__item" data-row="5"><button class="rows__btn" aria-expanded="false" aria-controls="d5"><span>Benne de 1,80 × 1,20 m</span><span class="rows__who">JS150</span></button><p class="rows__desc" id="d5">Une benne de 1&nbsp;800 × 1&nbsp;200 × 400 mm, pour une charge allant jusqu'à 900 kg.</p></li>
-        <li class="rows__item" data-row="6"><button class="rows__btn" aria-expanded="false" aria-controls="d6"><span>Suspension à ressorts et à lames</span><span class="rows__who">JS150</span></button><p class="rows__desc" id="d6">Quatre ressorts et amortisseurs à l'avant, lames 4+3 à l'arrière et pont arrière semi-flottant renforcé.</p></li>
-      </ul>
     </div>
   </section>
 
@@ -271,21 +175,21 @@
     </div>
     <div class="reel__row" tabindex="0" aria-label="Vidéo et photos de la gamme, défilement horizontal">
       <figure class="mod mod--tall mod--video">
-        <video src="assets/video/mig-gamme-720.mp4" poster="assets/video/poster.jpg" muted loop playsinline autoplay preload="metadata" width="720" height="1280" aria-label="Vidéo de présentation des quatre véhicules MIG Mobility"></video>
+        <video src="assets/video/mig-gamme-720.mp4" poster="assets/video/poster.jpg" muted loop playsinline preload="none" data-inview width="720" height="1280" aria-label="Vidéo de présentation des quatre véhicules MIG Mobility"></video>
         <figcaption><a class="link-plain" href="assets/video/mig-gamme-son.mp4">Regarder avec le son</a></figcaption>
       </figure>
       <div class="mod mod--pair">
         <img src="assets/img/detail-t15-frein.webp" alt="Roue avant et disque de frein du T15" width="800" height="1000" loading="lazy">
         <img src="assets/img/detail-t15-topcase.webp" alt="Top case du T15" width="800" height="1000" loading="lazy">
       </div>
-      <figure class="mod mod--wide mod--field-black"><img src="assets/img/leopard.webp" alt="Moto Asia Leopard 125 cm³ grise, de profil" width="1200" height="937" loading="lazy"></figure>
+      <a class="mod mod--wide mod--field-black" href="asia-leopard.html"><img src="assets/img/leopard.webp" alt="Moto Asia Leopard 125 cm³ grise, de profil" width="1200" height="937" loading="lazy"></a>
       <div class="mod mod--pair">
         <img src="assets/img/detail-leopard-moteur.webp" alt="Moteur 125 cm³ de l'Asia Leopard" width="800" height="1000" loading="lazy">
         <img src="assets/img/detail-a23-parebrise.webp" alt="Pare-brise et essuie-glace de l'A23-1" width="800" height="1000" loading="lazy">
       </div>
-      <figure class="mod mod--tall mod--field-red"><img src="assets/img/a23.webp" alt="Tricycle électrique A23-1 avec toit" width="1194" height="1134" loading="lazy"></figure>
-      <figure class="mod mod--wide mod--field-grey"><img src="assets/img/js150.webp" alt="Tricycle cargo JS150 rouge avec benne" width="1200" height="1025" loading="lazy"></figure>
-      <figure class="mod mod--tall mod--field-red"><img src="assets/img/t15.webp" alt="Scooter électrique T15 blanc et vert" width="804" height="955" loading="lazy"></figure>
+      <a class="mod mod--tall mod--field-red" href="a23-1.html"><img src="assets/img/a23.webp" alt="Tricycle électrique A23-1 avec toit" width="1194" height="1134" loading="lazy"></a>
+      <a class="mod mod--wide mod--field-grey" href="js150.html"><img src="assets/img/js150.webp" alt="Tricycle cargo JS150 rouge avec benne" width="1200" height="1025" loading="lazy"></a>
+      <a class="mod mod--tall mod--field-red" href="t15.html"><img src="assets/img/t15.webp" alt="Scooter électrique T15 blanc et vert" width="804" height="955" loading="lazy"></a>
     </div>
    </div>
   </section>
@@ -297,8 +201,8 @@
     <div class="contact__links">
       <h2 class="contact__q" id="contact-title">Un modèle vous intéresse ?</h2>
       <a class="link-plain" href="tel:+221338482275">Téléphone · 33 848 22 75</a>
-      <a class="link-plain" data-wa="Bonjour MIG Mobility, je voudrais des informations sur vos véhicules." href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20des%20informations%20sur%20vos%20v%C3%A9hicules.">WhatsApp · 71 097 12 12</a>
-      <a class="link-plain" data-wa="Bonjour MIG Mobility, je voudrais des informations sur vos véhicules." href="https://wa.me/221710971010?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20des%20informations%20sur%20vos%20v%C3%A9hicules." data-wa-num="221710971010">WhatsApp · 71 097 10 10</a>
+      <a class="link-plain" href="https://wa.me/221710971212?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20des%20informations%20sur%20vos%20v%C3%A9hicules.">WhatsApp · 71 097 12 12</a>
+      <a class="link-plain" href="https://wa.me/221710971010?text=Bonjour%20MIG%20Mobility%2C%20je%20voudrais%20des%20informations%20sur%20vos%20v%C3%A9hicules.">WhatsApp · 71 097 10 10</a>
       <p class="small muted">Dakar, Sénégal</p>
     </div>
   </section>
@@ -307,9 +211,10 @@
 <footer class="foot">
   <p class="small">MIG Mobility Sénégal, deux et trois roues</p>
   <nav class="foot__links small" aria-label="Pied de page">
-    <a class="link-plain" href="#vehicules">Véhicules</a>
-    <a class="link-plain" href="#fiches">Fiches</a>
-    <a class="link-plain" href="#contact">Contact</a>
+    <a class="link-plain" href="t15.html">T15</a>
+    <a class="link-plain" href="asia-leopard.html">Asia Leopard</a>
+    <a class="link-plain" href="a23-1.html">A23-1</a>
+    <a class="link-plain" href="js150.html">JS150</a>
   </nav>
   <p class="small muted foot__right">© 2026 · Caractéristiques : données constructeur</p>
 </footer>
